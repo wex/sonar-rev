@@ -127,6 +127,11 @@ Set classic-mode Game-channel volume to 100%
 curl -X PUT http://127.0.0.1:13108/volumeSettings/classic/game/Volume/1.00 -H "Content-Length: 0" -H "Host: localhost:13108"
 ```
 
+## How to get that certificate (in Sonar)
+
+![TrustSteelSeriesCertificates()](image-1.png)
+
+Seems like we are connecting to `ggEncryptedAddress` and trusting the certificate there. (I am not 100% sure since code is using somekind of DI with C# and had literally 5 minutes to check out the Sonar's end.)
 
 ## Future?
 
