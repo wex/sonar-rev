@@ -114,6 +114,20 @@ These examples can be used to do some basic volume controlling over API.
 To capture more just run Wireshark with port filtering
 `tcp.port == ####` where `####` is port number from `subApps.sonar.metadata.webServerAddress`.
 
+## Some examples
+
+Mute/unmute classic-mode Game-channel
+```
+curl -X PUT http://127.0.0.1:13108/volumeSettings/classic/game/Mute/true -H "Content-Length: 0" -H "Host: localhost:13108"
+curl -X PUT http://127.0.0.1:13108/volumeSettings/classic/game/Mute/false -H "Content-Length: 0" -H "Host: localhost:13108"
+```
+
+Set classic-mode Game-channel volume to 100%
+```
+curl -X PUT http://127.0.0.1:13108/volumeSettings/classic/game/Volume/1.00 -H "Content-Length: 0" -H "Host: localhost:13108"
+```
+
+
 ## Future?
 
 I started to reverse engineer this stuff for a plugin to Elgato Streamdeck.
