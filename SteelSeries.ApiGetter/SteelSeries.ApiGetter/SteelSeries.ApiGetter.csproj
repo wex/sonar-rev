@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <SonarAssembliesPath>C:\Program Files\SteelSeries\GG\apps\sonar\</SonarAssembliesPath>
+
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Sonar.Logging">
+            <HintPath>$(SonarAssembliesPath)Sonar.Logging.dll</HintPath>
+        </Reference>
+        <Reference Include="SoundStage.Api">
+            <HintPath>$(SonarAssembliesPath)SoundStage.Api.dll</HintPath>
+        </Reference>
+        <Reference Include="SoundStage.AudioRepository">
+            <HintPath>$(SonarAssembliesPath)SoundStage.AudioRepository.dll</HintPath>
+        </Reference>
+        <Reference Include="SoundStage.IoC">
+            <HintPath>$(SonarAssembliesPath)SoundStage.IoC.dll</HintPath>
+        </Reference>
+        <Reference Include="SoundStage.Models">
+            <HintPath>$(SonarAssembliesPath)SoundStage.Models.dll</HintPath>
+        </Reference>
+        <Reference Include="SoundStage.Services">
+            <HintPath>$(SonarAssembliesPath)SoundStage.Services.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+</Project>

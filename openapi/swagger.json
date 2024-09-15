@@ -1,0 +1,4472 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SteelSeries.ApiGetter",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/Analytics/track": {
+      "post": {
+        "tags": [
+          "Analytics"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsEvent"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsEvent"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyticsEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Applications": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Application"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Application"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Application"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Applications/{application}": {
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CreatedAt",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "UpdatedAt",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ExectuablePath",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Directory",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UniqueIdentifier",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Applications"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CreatedAt",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "UpdatedAt",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ExectuablePath",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Directory",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UniqueIdentifier",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Applications/{id}": {
+      "delete": {
+        "tags": [
+          "Applications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Applications/addByPath/{payload}": {
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "parameters": [
+          {
+            "name": "Path",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payload",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioDeviceRouting": {
+      "get": {
+        "tags": [
+          "AudioDeviceRouting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceAudioSessions"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceAudioSessions"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceAudioSessions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioDeviceRouting/{deviceDataFlow}/{processId}": {
+      "get": {
+        "tags": [
+          "AudioDeviceRouting"
+        ],
+        "parameters": [
+          {
+            "name": "deviceDataFlow",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceDataFlow"
+            }
+          },
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioDeviceRouting/{deviceDataFlow}/{deviceId}/{processId}": {
+      "put": {
+        "tags": [
+          "AudioDeviceRouting"
+        ],
+        "parameters": [
+          {
+            "name": "deviceDataFlow",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceDataFlow"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioDevices": {
+      "get": {
+        "tags": [
+          "AudioDevices"
+        ],
+        "parameters": [
+          {
+            "name": "deviceDataFlow",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceDataFlow"
+            }
+          },
+          {
+            "name": "onlySteelSeriesVAD",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "removeSteelSeriesVAD",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioDevice"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioDevice"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioDevice"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioDevices/{id}": {
+      "get": {
+        "tags": [
+          "AudioDevices"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioDevice"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioDevice"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioDevice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioInitialization/initializeClassicRedirections": {
+      "post": {
+        "tags": [
+          "AudioInitialization"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioInitialization/{role}/isEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "AudioInitialization"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioSamples/samples": {
+      "get": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioSample"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioSample"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AudioSample"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioSamples/sample": {
+      "get": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioSample"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioSample"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioSample"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioSamples": {
+      "put": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioSamples/isPlaying/{role}": {
+      "get": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioSamples/stop/{role}": {
+      "put": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioSamples/{role}/select/{index}": {
+      "put": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioSamples/isRecording": {
+      "get": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AudioSamples/startRecord": {
+      "put": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/AudioSamples/stopRecord": {
+      "put": {
+        "tags": [
+          "AudioSamples"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ChatMix": {
+      "get": {
+        "tags": [
+          "ChatMix"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ChatMix"
+        ],
+        "parameters": [
+          {
+            "name": "balance",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatMix"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ClassicRedirections": {
+      "get": {
+        "tags": [
+          "ClassicRedirections"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassicRedirection"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassicRedirection"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassicRedirection"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ClassicRedirections/{id}/deviceId/{deviceId}": {
+      "put": {
+        "tags": [
+          "ClassicRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/RedirectionId"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ClassicRedirections/{id}/deviceId": {
+      "delete": {
+        "tags": [
+          "ClassicRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/RedirectionId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassicRedirection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs": {
+      "get": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "vad",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/VirtualAudioDevice"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Configs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Configs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs/{id}": {
+      "delete": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Configs/selected": {
+      "get": {
+        "tags": [
+          "Configs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Config"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs/{id}/select": {
+      "put": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs/default": {
+      "get": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "virtualAudioDevice",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/VirtualAudioDevice"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VadConfig"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VadConfig"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VadConfig"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs/retrieveFromUrlHash": {
+      "get": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "hash",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SharedConfig"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SharedConfig"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SharedConfig"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Configs/{id}/export": {
+      "post": {
+        "tags": [
+          "Configs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportRequestData"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportRequestData"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportRequestData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportedConfigLink"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportedConfigLink"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportedConfigLink"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Content/inAppToastMessage": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InAppToastMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InAppToastMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InAppToastMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut": {
+      "get": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceOutData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceOutData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceOutData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/audioPath": {
+      "get": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/audioPath/{feature}": {
+      "put": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/volume/{feature}": {
+      "get": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/mute/{feature}": {
+      "get": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/volume/{feature}/{volume}": {
+      "put": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          },
+          {
+            "name": "volume",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeviceOut/mute/{feature}/{mute}": {
+      "put": {
+        "tags": [
+          "DeviceOut"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          },
+          {
+            "name": "mute",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isEnabled": {
+      "get": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isWirelessTriggerEnabled": {
+      "get": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isWirelessTriggerEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isFallbackOnRebootEnabled": {
+      "get": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isFallbackOnRebootEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/isFallbackLinkAllEnabled": {
+      "get": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/lists": {
+      "get": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/excludeDevice/{role}/{deviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/includeDevice/{role}/{sourceDeviceId}/{destinationDeviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "sourceDeviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationDeviceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/excludeDeviceFromAll/{deviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/includeDeviceInAll/{sourceDeviceId}/{destinationDeviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "sourceDeviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationDeviceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/setDevicePosition/{role}/{sourceDeviceId}/{destinationDeviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "sourceDeviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationDeviceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FallbackDeviceData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/setDevicePositionInAll/{sourceDeviceId}/{destinationDeviceId}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "sourceDeviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationDeviceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/link/{sourceRole}": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "parameters": [
+          {
+            "name": "sourceRole",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/FallbackSettings/unlink": {
+      "put": {
+        "tags": [
+          "FallbackSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FallbackLinkData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Features": {
+      "get": {
+        "tags": [
+          "Features"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeatureData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeatureData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeatureData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Features/{feature}": {
+      "get": {
+        "tags": [
+          "Features"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Features"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/KeyboardShortcuts": {
+      "get": {
+        "tags": [
+          "KeyboardShortcuts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KeyboardShortcut"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KeyboardShortcut"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KeyboardShortcut"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "KeyboardShortcuts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeyboardShortcut"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeyboardShortcut"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeyboardShortcut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Mode": {
+      "get": {
+        "tags": [
+          "Mode"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mode/{id}": {
+      "put": {
+        "tags": [
+          "Mode"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/ModeId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeId"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Onboarding": {
+      "get": {
+        "tags": [
+          "Onboarding"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardingPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardingPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardingPayload"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Onboarding"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnboardingDevices"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnboardingDevices"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnboardingDevices"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Overlays": {
+      "get": {
+        "tags": [
+          "Overlays"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OverlaysSettings"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OverlaysSettings"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OverlaysSettings"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Overlays/isHardwareTriggeredEnabled": {
+      "get": {
+        "tags": [
+          "Overlays"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Overlays/isHardwareTriggeredEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "Overlays"
+        ],
+        "parameters": [
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Overlays/isEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "Overlays"
+        ],
+        "parameters": [
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Overlays/{overlayName}/isEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "Overlays"
+        ],
+        "parameters": [
+          {
+            "name": "overlayName",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Overlays/position/{position}": {
+      "put": {
+        "tags": [
+          "Overlays"
+        ],
+        "parameters": [
+          {
+            "name": "position",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/OverlayPosition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections": {
+      "get": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreamRedirection"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreamRedirection"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreamRedirection"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/{id}/deviceId/{deviceId}": {
+      "put": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/{id}/deviceId": {
+      "delete": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/{id}/redirections/{role}/isEnabled/{isEnabled}": {
+      "put": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "isEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamRedirection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/isStreamMonitoringEnabled": {
+      "get": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/isStreamMonitoringEnabled/{isStreamMonitoringEnabled}": {
+      "put": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "parameters": [
+          {
+            "name": "isStreamMonitoringEnabled",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/StreamRedirections/isStreamMonitoringLocked": {
+      "get": {
+        "tags": [
+          "StreamRedirections"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/classic": {
+      "get": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/classic/Master/Volume/{masterVolume}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "masterVolume",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/classic/Master/Mute/{masterMute}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "masterMute",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/classic/{role}/Volume/{volume}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "volume",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/classic/{role}/Mute/{mute}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "mute",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/streamer": {
+      "get": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/streamer/{id}/master/volume/{masterVolume}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "masterVolume",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/streamer/{id}/master/isMuted/{masterMute}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "masterMute",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/streamer/{id}/{role}/volume/{value}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/VolumeSettings/streamer/{id}/{role}/isMuted/{value}": {
+      "put": {
+        "tags": [
+          "VolumeSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/StreamRedirectionId"
+            }
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/DeviceRole"
+            }
+          },
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyticsEvent": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "exectuablePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "directory": {
+            "type": "string",
+            "nullable": true
+          },
+          "uniqueIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AudioDevice": {
+        "type": "object",
+        "properties": {
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataFlow": {
+            "$ref": "#/components/schemas/DeviceDataFlow"
+          },
+          "role": {
+            "$ref": "#/components/schemas/DeviceRole"
+          },
+          "channels": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "defaultRole": {
+            "$ref": "#/components/schemas/DeviceDefaultRoles"
+          },
+          "fwUpdateRequired": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AudioSample": {
+        "type": "object",
+        "properties": {
+          "deviceRole": {
+            "$ref": "#/components/schemas/DeviceRole"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullPathName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AudioSession": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "processName": {
+            "type": "string",
+            "nullable": true
+          },
+          "processId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isSystemSound": {
+            "type": "boolean"
+          },
+          "state": {
+            "$ref": "#/components/schemas/AudioSessionState"
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRoutingErrorProne": {
+            "type": "boolean"
+          },
+          "routingErrorDetected": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AudioSessionState": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ChatMix": {
+        "type": "object",
+        "properties": {
+          "balance": {
+            "type": "number",
+            "format": "float"
+          },
+          "state": {
+            "$ref": "#/components/schemas/ChatMixState"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChatMixState": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ClassicRedirection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/RedirectionId"
+          },
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRunning": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Config": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "maxLength": 40,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "virtualAudioDevice": {
+            "$ref": "#/components/schemas/VirtualAudioDevice"
+          },
+          "data": {
+            "nullable": true
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isSelected": {
+            "type": "boolean"
+          },
+          "applications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application"
+            },
+            "nullable": true
+          },
+          "isPreset": {
+            "type": "boolean"
+          },
+          "defaultData": {
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultDataLastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfigDataForSharing": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "nullable": true
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "virtualAudioDevice": {
+            "$ref": "#/components/schemas/VirtualAudioDevice"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceAudioSessions": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/DeviceRole"
+          },
+          "dataFlow": {
+            "$ref": "#/components/schemas/DeviceDataFlow"
+          },
+          "audioSessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AudioSession"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceDataFlow": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "DeviceDefaultRoles": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "DeviceOutData": {
+        "type": "object",
+        "properties": {
+          "selectedDeviceOut": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceOutSettings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceOutSetting"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceOutSetting": {
+        "type": "object",
+        "properties": {
+          "volume": {
+            "type": "number",
+            "format": "float"
+          },
+          "mute": {
+            "type": "boolean"
+          },
+          "feature": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceRole": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "$ref": "#/components/schemas/DeviceRole"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FallbackDeviceData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExportRequestData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExportedConfigLink": {
+        "type": "object",
+        "properties": {
+          "shareUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FallbackDeviceData": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isSteelseriesWirelessSupported": {
+            "type": "boolean"
+          },
+          "isSteelseriesWirelessConnected": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "isExcluded": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FallbackLinkData": {
+        "type": "object",
+        "properties": {
+          "isLinked": {
+            "type": "boolean"
+          },
+          "devices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceRoleFallbackDeviceDataIEnumerableKeyValuePair"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Feature": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "FeatureData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Feature"
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InAppToastMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "buttonText": {
+            "type": "string",
+            "nullable": true
+          },
+          "buttonLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeyboardShortcut": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "triggerData": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultTrigger": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModeId": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "OnBoardingPayload": {
+        "type": "object",
+        "properties": {
+          "finished": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OnboardingDevices": {
+        "type": "object",
+        "properties": {
+          "devices": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OverlayPosition": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "OverlaySettingsData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "localization": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OverlaysSettings": {
+        "type": "object",
+        "properties": {
+          "settings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OverlaySettingsData"
+            },
+            "nullable": true
+          },
+          "subAppOverlaysEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RedirectionId": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "RedirectionVolumes": {
+        "type": "object",
+        "properties": {
+          "stream": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/VolumeSettings"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "classic": {
+            "$ref": "#/components/schemas/VolumeSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SharedConfig": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ConfigDataForSharing"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SharedConfigMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SharedConfigMetadata": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "author": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StreamRedirection": {
+        "type": "object",
+        "properties": {
+          "streamRedirectionId": {
+            "$ref": "#/components/schemas/StreamRedirectionId"
+          },
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StreamRedirectionStatus"
+            },
+            "nullable": true
+          },
+          "isRunning": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StreamRedirectionId": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StreamRedirectionStatus": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/DeviceRole"
+          },
+          "isEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VadConfig": {
+        "type": "object",
+        "properties": {
+          "globalEnableState": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VirtualAudioDevice": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "VolumeInfo": {
+        "type": "object",
+        "properties": {
+          "masters": {
+            "$ref": "#/components/schemas/RedirectionVolumes"
+          },
+          "devices": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RedirectionVolumes"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VolumeSettings": {
+        "type": "object",
+        "properties": {
+          "volume": {
+            "type": "number",
+            "format": "float"
+          },
+          "muted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
