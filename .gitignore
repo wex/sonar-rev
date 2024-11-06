@@ -2,3 +2,6 @@
 /*.pcapng
 /decrypted
 /tls
+SteelSeries.ApiGetter/.idea/
+bin/
+obj/
